@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV Impact: The Silent Skin Gamble</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #E5D0C5, #FFFFFF);
+            color: #2F4031;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2F4031;
+            margin-top: 10px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            display: block;
+            font-size: 36px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: auto;
+            padding: 10px;
+        }
+
+        .slide-box {
+            display: flex;
+            background: linear-gradient(to bottom, #F5E9DC, #FFFFFF);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 90%;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slide-content {
+            width: 50%;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .slide-image {
+            width: 50%;
+            padding: 0;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px 0 0 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2F4031;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2F4031;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .arrow {
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #2F4031;
+            padding: 10px;
+        }
+
+        .arrow:hover {
+            color: #1A2618;
+        }
+
+        a {
+            text-decoration: underline;
+            color: #2F4031;
+        }
+
+        a:hover {
+            color: #1A2618;
+        }
+
+        @media screen and (max-width: 768px) {
+            .title {
+                font-size: 30px;
+                margin-top: 5px;
+            }
+
+            .subtitle {
+                font-size: 30px;
+            }
+
+            .slide-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .slide-image, .slide-content {
+                width: 100%;
+            }
+
+            .slide-image img {
+                border-radius: 10px 10px 0 0;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .arrow {
+                font-size: 28px;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="title">
+        UV Impact: The Silence Skin <br>
+        <span class="subtitle">Gamble</span>
+    </h1>
+
+    <div class="container">
+        <div class="arrow" onclick="prevSlide()">&lt;</div>
+        <div class="slide-box" id="slideContainer">
+            <div class="slide-image">
+                <img id="slideImage" src="https://www.canceraustralia.gov.au/sites/default/files/styles/content__1x/public/2024-09/figure-3-estimated-cancer-mortality-in-australia-2023.png?itok=LvMMNgbd" alt="Slide Image">
+            </div>
+            <div class="slide-content">
+                <h2 id="slideTitle">Impact of Skin <br> Cancer is Severe</h2>
+                <p id="slideText">
+                    In 2021, melanoma of the skin was the tenth most common cause of cancer death in Australia.<br><br>
+                    In 2021, there were 1,455 deaths from melanoma of the skin in Australia (958 males and 497 females). In 2023, it is estimated that there will be 1,314 deaths (853 males and 461 females). In 2023, it is estimated
+                    that a person has a 1 in 269 (or 0.4%) risk of dying from
+                    melanoma of the skin by the age of 85 (1 in 206 or
+                    0.5% for males and 1 in 389 or 0.3% for females).
+                </p>
+            </div>
+        </div>
+        <div class="arrow" onclick="nextSlide()">&gt;</div>
+    </div>
+
+    <script>
+        const slides = [
+            {
+                title: "Impact of Skin <br> Cancer is Severe",
+                text: "In 2021, melanoma of the skin was the tenth most common cause of cancer death in Australia.<br><br>In 2021, there were 1,455 deaths from melanoma of the skin in Australia (958 males and 497 females). In 2023, it is estimated that there will be 1,314 deaths (853 males and 461 females).",
+                image: "https://www.canceraustralia.gov.au/sites/default/files/styles/content__1x/public/2024-09/figure-3-estimated-cancer-mortality-in-australia-2023.png?itok=LvMMNgbd"
+            },
+            {
+                title: "Trend of Heat in <br> Australia",
+                text: `Australia’s climate has warmed since national records began in 1910.<br><br>
+                       Australia's average temperature has <a href="http://www.bom.gov.au/state-of-the-climate/" target="_blank">increased on average by 1.44 ± 0.24°C since national records began in 1910</a>. 
+                       Since 1950, every decade has been warmer than the decade before.<br><br>
+                       Both <a href="https://www.climatechangeinaustralia.gov.au/en/changing-climate/climate-trends/australian-trends/" target="_blank">day and night-time</a> temperatures have increased. 
+                       Oceans around Australia have <a href="http://www.bom.gov.au/state-of-the-climate/" target="_blank">warmed by around 1°C since 1910</a>.`,
+                image: "https://www.abc.net.au/reslib/201301/r1059892_12404105.jpg"
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function updateSlide() {
+            document.getElementById("slideTitle").innerHTML = slides[currentSlide].title;
+            document.getElementById("slideText").innerHTML = slides[currentSlide].text;
+            document.getElementById("slideImage").src = slides[currentSlide].image;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+        }
+    </script>
+
+</body>
+</html>
